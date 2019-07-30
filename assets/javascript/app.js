@@ -123,7 +123,7 @@ function newGame() {
     answered = 0;
     correctAnswer = 0;
     incorrectAnswer = 0;
-    
+
     newQuestion();
 
 }
@@ -132,18 +132,45 @@ function newQuestion() {
     $("#message").empty();
     $("#correctedAnswer").empty();
     $("#gif").empty();
-    answer=true;
+    answer = true;
 
-    $("#currentQuestion").html("Question #" +(currentQuestion+1)+"/"+triviaQuestions.length);
+    $("#currentQuestion").html("Question #" + (currentQuestion + 1) + "/" + triviaQuestions.length);
     $(".question").html("<h2>" + triviaQuestions[currentQuestion].question + "</h2>");
 
-        for (var i = 0; i < 4; i++) {
-            var choices = $("div");
-            choices.text(triviaQuestoins[currentQuestion].possibleAnswers[i]);
-            choices.attr({"data-index": i });
-            choices.addClass("thisChoice");
-            $(".answerList").append(choices);
-        }
+    for (var i = 0; i < 4; i++) {
+        var choices = $("div");
+        choices.text(triviaQuestions[currentQuestion].possibleAnswers[i]);
+        choices.attr({ "data-index": i });
+        choices.addClass("thisChoice");
+        $(".answerList").append(choices);
+    }
 
+    countdown();
+
+    $(".thisChoice").on("click", function () {
+        userSelect = $(this).data("index");
+        clearInterval(time);
+        
+        answerPage();
+    });
 
 }
+
+    function countdown() {
+        seconds = 30;
+        $("#timeLeft").html("<h3>Time Remaining: " + seconds + "</h3>");
+        answered =true;
+        time = setInterval(showCountdown, 1000);
+
+    }
+
+    function showCountdown() {
+        seconds--;
+        $("#timleft").html("<h3>Time Remaing: " + seconds + "</h3>");
+            if(seconds < 1) {
+                clearInterval(time);
+                answered=false;
+                answerPage();
+            }
+
+    }
