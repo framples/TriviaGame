@@ -2,80 +2,80 @@
 //oject with questions
 var triviaQuestions = [{
 
-    question: "",
-    possibleAnswers: [],
+    question: "In S2E6 'The fight':  What is Dwight's Sensei's name?",
+    possibleAnswers: ["Ira", "George", "Stuart", "Ivan"],
     answer: 0
 },
 
 {
-    question: "",
-    possibleAnswers: [],
-    answer: 0
+    question: "In S2E10 'Christmas Party': Who ends up with the Video iPod at the end of the episode?",
+    possibleAnswers: ["Jim", "Pam", "Dwight", "Michael"],
+    answer: 2
 },
 {
-    question: "",
-    possibleAnswers: [],
-    answer: 1
+    question: "In S2E17 'Dwight's Speech': What infamous dictator's speech does Jim trick Dwight into giving at the sales conference?",
+    possibleAnswers: ["Adolf Hitler", "Joseph Stalin", "Benito Mussolini", "Mao Zedong"],
+    answer: 2
 
 },
 {
-    question: "",
-    possibleAnswers: [],
+    question: "In S2E22 'Casino Night': Who has two dates?",
+    possibleAnswers: ["Creed", "Bob Vance", "Jim", "Michael"],
     answer: 3
 },
 
 {
-    question: "",
-    possibleAnswers: [],
+    question: "In S3E9 'The Convict': Which of these things does Prison Mike NOT claim to have been busted for?",
+    possibleAnswers: ["I kidnapped the President's son", "I stole", "I robbed", "I killed Dumbledore"],
+    answer: 3
+
+},
+{
+    question: "In S5E19  'Two Weeks' What is Michael's signature cocktail?",
+    possibleAnswers: ["Orange Vodjuiceka", "Scotch and Splenda", "Gin and Tonic", "Whiskey Sour"],
+    answer: 1
+
+},
+{
+    question: "In S5E26 'Company Picnic' What award winning movie do Michael & Holly parody during their presentation?",
+    possibleAnswers: ["Titanic", "Shawshank Redemption", "Slumdog Millionaire", "Con Air"],
     answer: 2
 
 },
 {
-    question: "",
-    possibleAnswers: [],
+    question: "In S6E9 'Murder' There's been a murder in...' Where?",
+    possibleAnswers: ["Scranton", "Savannah", "Atlanta", "Augusta"],
+    answer: 1
+
+},
+{
+    question: "In S6E10 'Shareholder Meeting' Dwight dresses up as a character for Earth Day.  Name that character.",
+    possibleAnswers: ["The Green Machine", "The Solar Son", "Green Man", "Recyclops"],
+    answer: 3
+
+},
+{
+    question: "In S6E22 'The Cover-Up' Someone pranks Andy into believing there is a corporate conspiracy involving Sabre's smoking printers.  Who was the pranker?",
+    possibleAnswers: ["Jim", "Darryl", "Gabe", "Kevin"],
+    answer: 0
+
+},
+{
+    question: "In S6E24 'Whistleblower' What new company is David Wallace involved in?",
+    possibleAnswers: ["Stuck it", "Chuck it", "Suck it", "Bunt it"],
     answer: 2
 
 },
 {
-    question: "",
-    possibleAnswers: [],
-    answer: 2
+    question: "In S7E6 'Costume Contest' what famous music artist does Gabe dress as?",
+    possibleAnswers: ["Britney Spears", "Lady Gaga", "Christina Agulera", "Baby Spice"],
+    answer: 1
 
 },
 {
-    question: "",
-    possibleAnswers: [],
-    answer: 2
-
-},
-{
-    question: "",
-    possibleAnswers: [],
-    answer: 2
-
-},
-{
-    question: "",
-    possibleAnswers: [],
-    answer: 2
-
-},
-{
-    question: "",
-    possibleAnswers: [],
-    answer: 2
-
-},
-{
-    question: "",
-    possibleAnswers: [],
-    answer: 2
-
-},
-{
-    question: "",
-    possibleAnswers: [],
-    answer: 2
+    question: "In S7E12 'Ultimatum' What is Creed's New Year's resolution?",
+    possibleAnswers: ["To lose 10 pounds", "To complete a perfect cartwheel", "To read more", "To paint a picture"],
+    answer: 1
 
 }];
 
