@@ -1,91 +1,83 @@
-$(document).ready(function() {
+
 //oject with questions
 var triviaQuestions = [{
 
     question: "In S2E6 'The fight':  What is Dwight's Sensei's name?",
-    possibleAnswers: ["Ira", "George", "Stuart", "Ivan"],
+    answerList: ["Ira", "George", "Stuart", "Ivan"],
     answer: 0
 },
 
 {
     question: "In S2E10 'Christmas Party': Who ends up with the Video iPod at the end of the episode?",
-    possibleAnswers: ["Jim", "Pam", "Dwight", "Michael"],
+    answerList: ["Jim", "Pam", "Dwight", "Michael"],
     answer: 2
 },
 {
     question: "In S2E17 'Dwight's Speech': What infamous dictator's speech does Jim trick Dwight into giving at the sales conference?",
-    possibleAnswers: ["Adolf Hitler", "Joseph Stalin", "Benito Mussolini", "Mao Zedong"],
+    answerList: ["Adolf Hitler", "Joseph Stalin", "Benito Mussolini", "Mao Zedong"],
     answer: 2
 
 },
 {
     question: "In S2E22 'Casino Night': Who has two dates?",
-    possibleAnswers: ["Creed", "Bob Vance", "Jim", "Michael"],
+    answerList: ["Creed", "Bob Vance", "Jim", "Michael"],
     answer: 3
 },
 
 {
     question: "In S3E9 'The Convict': Which of these things does Prison Mike NOT claim to have been busted for?",
-    possibleAnswers: ["I kidnapped the President's son", "I stole", "I robbed", "I killed Dumbledore"],
+    answerList: ["I kidnapped the President's son", "I stole", "I robbed", "I killed Dumbledore"],
     answer: 3
 
 },
 {
     question: "In S5E19  'Two Weeks' What is Michael's signature cocktail?",
-    possibleAnswers: ["Orange Vodjuiceka", "Scotch and Splenda", "Gin and Tonic", "Whiskey Sour"],
+    answerList: ["Orange Vodjuiceka", "Scotch and Splenda", "Gin and Tonic", "Whiskey Sour"],
     answer: 1
 
 },
 {
     question: "In S5E26 'Company Picnic' What award winning movie do Michael & Holly parody during their presentation?",
-    possibleAnswers: ["Titanic", "Shawshank Redemption", "Slumdog Millionaire", "Con Air"],
+    answerList: ["Titanic", "Shawshank Redemption", "Slumdog Millionaire", "Con Air"],
     answer: 2
 
 },
 {
     question: "In S6E9 'Murder' There's been a murder in...' Where?",
-    possibleAnswers: ["Scranton", "Savannah", "Atlanta", "Augusta"],
+    panswerList: ["Scranton", "Savannah", "Atlanta", "Augusta"],
     answer: 1
 
 },
 {
     question: "In S6E10 'Shareholder Meeting' Dwight dresses up as a character for Earth Day.  Name that character.",
-    possibleAnswers: ["The Green Machine", "The Solar Son", "Green Man", "Recyclops"],
+    answerList: ["The Green Machine", "The Solar Son", "Green Man", "Recyclops"],
     answer: 3
 
 },
 {
     question: "In S6E22 'The Cover-Up' Someone pranks Andy into believing there is a corporate conspiracy involving Sabre's smoking printers.  Who was the pranker?",
-    possibleAnswers: ["Jim", "Darryl", "Gabe", "Kevin"],
+    answerList: ["Jim", "Darryl", "Gabe", "Kevin"],
     answer: 0
 
 },
 {
     question: "In S6E24 'Whistleblower' What new company is David Wallace involved in?",
-    possibleAnswers: ["Stuck it", "Chuck it", "Suck it", "Bunt it"],
+    answerList: ["Stuck it", "Chuck it", "Suck it", "Bunt it"],
     answer: 2
 
 },
 {
     question: "In S7E6 'Costume Contest' what famous music artist does Gabe dress as?",
-    possibleAnswers: ["Britney Spears", "Lady Gaga", "Christina Agulera", "Baby Spice"],
+    answerList: ["Britney Spears", "Lady Gaga", "Christina Agulera", "Baby Spice"],
     answer: 1
 
 },
 {
     question: "In S7E12 'Ultimatum' What is Creed's New Year's resolution?",
-    possibleAnswers: ["To lose 10 pounds", "To complete a perfect cartwheel", "To read more", "To paint a picture"],
+    answerList: ["To lose 10 pounds", "To complete a perfect cartwheel", "To read more", "To paint a picture"],
     answer: 1
 
 }];
-
-var messages = {
-    incorrect: "Sorry! That answer is incorrect.",
-    correct: "Well done! That is correct.",
-    timesUp: "Times up! Pencils down...err whatever.",
-    finished: "Lets see how you did!",
-
-};
 
 var currentQuestion;
 var correctAnswer;
@@ -94,17 +86,25 @@ var unanswered;
 var answered;
 var seconds;
 var time;
-var userAnswer;
+var userSelect;
+
+var messages = {
+    incorrect: "Sorry! That answer is incorrect.",
+    correct: "Well done! That is correct.",
+    endTime: "Times up! Pencils down...err whatever.",
+    finished: "Lets see how you did!",
+
+};
 
 
 //functions to make buttons actually do something
-$("#startOverButton").on("click", function () {
+$("#startBtn").on("click", function () {
     $(this).hide();
     newGame();
 
 });
 
-$("#startButton").on("click", function () {
+$("#startOverBtn").on("click", function () {
     $(this).hide();
     newGame();
 
@@ -113,13 +113,13 @@ $("#startButton").on("click", function () {
 // function to create a new game
 function newGame() {
 
-    $("#correctAnswer").empty();
-    $("#incorrectAnswer").empty();
+    $("#correctAnswers").empty();
+    $("#incorrectAnswers").empty();
     $("#unanswered").empty();
-    $("#answered").empty();
+    $("#finalMessage").empty();
 
     currentQuestion = 0;
-    answered = 0;
+    unanswered = 0;
     correctAnswer = 0;
     incorrectAnswer = 0;
 
@@ -137,8 +137,8 @@ function newQuestion() {
     $(".question").html("<h2>" + triviaQuestions[currentQuestion].question + "</h2>");
 
     for (var i = 0; i < 4; i++) {
-        var choices = $("div");
-        choices.text(triviaQuestions[currentQuestion].possibleAnswers[i]);
+        var choices = $("<div>");
+        choices.text(triviaQuestions[currentQuestion].answerList[i]);
         choices.attr({ "data-index": i });
         choices.addClass("thisChoice");
         $(".answerList").append(choices);
@@ -179,9 +179,10 @@ function answerPage() {
     $(".thisChoice").empty();
     $(".question").empty();
 
-    var rightAnswerText = triviaQuestions[currentQuestion].possibleAnswers[triviaQuestions[currentQuestion].answer];
+    var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
     var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
-
+    
+    
 
     if ((userSelect == rightAnswerIndex) && (answered == true)) {
         correctAnswer++;
@@ -193,13 +194,13 @@ function answerPage() {
 
     } else {
         unanswered++;
-        $("#message").html(messages.timesUp);
+        $("#message").html(messages.endTime);
         $("#correctedAnswer").html("The correct answer was: " + rightAnswerText);
         answered = true;
 
     }
 
-    if (currentQuestion == (triviaQuestions.length - 1)) {
+    if (currentQuestion == (triviaQuestions.length-1)) {
         setTimeout(scoreboard, 5000)
     } else {
         currentQuestion++;
@@ -217,12 +218,12 @@ function scoreboard() {
 
     $("#finalMessage").html(messages.finished);
     $("#correctAnswers").html("Correct Answers: " + correctAnswer);
-    $("#incorrectAnswer").html("Incorect Answers: " + incorrectAnswer);
+    $("#incorrectAnswer").html("Incorrect Answers: " + incorrectAnswer);
     $("#unanswered").html("Unanswered " + unanswered);
-    $("#startOverButton").addClass("reset");
-    $("#startOverButton").show();
-    $("#startOverButton").html("Test your wits again?");
+    $("#startOverBtn").addClass("reset");
+    $("#startOverBtn").show();
+    $("#startOverBtn").html("Test your wits again?");
 
 }
-});
+
 
