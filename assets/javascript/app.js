@@ -89,13 +89,36 @@ var currentQuestion;
 var correctAnswer;
 var incorrectAnswer;
 var unanswered;
+var answered;
 var seconds;
 var time;
-var answered;
 var userAnswer;
 
 var gifAssignment = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12]
 
 
+$("#startOverButton").on("click", function() {
+    $(this).hide();
+    newGame();
+
+}); 
+
+$("#startButton").on("click", function() {
+    $(this).hide();
+    newGame();
+
+});
 
 
+function newGame() {
+
+    $(correctAnswer).empty();
+    $(incorrectAnswer).empty();
+    $(unanswered).empty();
+    $(answered).empty();
+
+    time = 0;
+    seconds = 0;
+    currentQuestion = 0;
+    userAnswer = 0;
+}
