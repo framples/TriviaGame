@@ -57,7 +57,7 @@ var triviaQuestions = [{
 {
     question: "In S6E22 'The Cover-Up' Someone pranks Andy into believing there is a corporate conspiracy involving Sabre's smoking printers.  Who was the pranker?",
     answerList: ["Jim", "Darryl", "Gabe", "Kevin"],
-    answer: 0
+    answer: 1
 
 },
 {
@@ -91,7 +91,7 @@ var userSelect;
 var messages = {
     incorrect: "Sorry! That answer is incorrect.",
     correct: "Well done! That is correct.",
-    endTime: "Times up! Pencils down...err whatever.",
+    endTime: "Times up!",
     finished: "Lets see how you did!",
 
 };
