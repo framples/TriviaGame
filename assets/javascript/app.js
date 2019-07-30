@@ -76,3 +76,26 @@ var triviaQuestions = [{
     answer: 2
 
 }];
+
+var messages = {
+incorrect: "Sorry! That answer is incorrect.",
+correct: "Well done! That is correct.",
+timesUp: "Times up! Pencils down...err whatever.",
+finished: "Lets see how you did!"
+
+};
+
+var currentQuestion;
+var correctAnswer;
+var incorrectAnswer;
+var unanswered;
+var seconds;
+var time;
+var answered;
+var userAnswer;
+
+var gifAssignment = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12]
+
+
+
+
