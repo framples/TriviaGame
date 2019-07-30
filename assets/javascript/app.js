@@ -1,4 +1,4 @@
-
+$(document).ready(function() {
 //oject with questions
 var triviaQuestions = [{
 
@@ -83,7 +83,7 @@ var messages = {
     incorrect: "Sorry! That answer is incorrect.",
     correct: "Well done! That is correct.",
     timesUp: "Times up! Pencils down...err whatever.",
-    finished: "Lets see how you did!"
+    finished: "Lets see how you did!",
 
 };
 
@@ -96,7 +96,6 @@ var seconds;
 var time;
 var userAnswer;
 
-var gifAssignment = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12]
 
 //functions to make buttons actually do something
 $("#startOverButton").on("click", function () {
@@ -182,7 +181,7 @@ function answerPage() {
 
     var rightAnswerText = triviaQuestions[currentQuestion].possibleAnswers[triviaQuestions[currentQuestion].answer];
     var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
-    $('#gif').html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');
+
 
     if ((userSelect == rightAnswerIndex) && (answered == true)) {
         correctAnswer++;
@@ -225,5 +224,5 @@ function scoreboard() {
     $("#startOverButton").html("Test your wits again?");
 
 }
-
+});
 
