@@ -43,8 +43,8 @@ var triviaQuestions = [{
 
 },
 {
-    question: "In S6E9 'Murder' There's been a murder in...' Where?",
-    panswerList: ["Scranton", "Savannah", "Atlanta", "Augusta"],
+    question: "In S6E9 'Murder' There's been a murder in... Where?",
+    answerList: ["Scranton", "Savannah", "Atlanta", "Augusta"],
     answer: 1
 
 },
@@ -156,7 +156,7 @@ function newQuestion() {
 }
 
 function countdown() {
-    seconds = 30;
+    seconds = 20;
     $("#timeLeft").html("<h3>Time Remaining: " + seconds + "</h3>");
     answered = true;
     time = setInterval(showCountdown, 1000);
@@ -165,7 +165,7 @@ function countdown() {
 
 function showCountdown() {
     seconds--;
-    $("#timeleft").html("<h3>Time Remaining: " + seconds + "</h3>");
+    $("#timeLeft").html("<h3>Time Remaining: " + seconds + "</h3>");
     if (seconds < 1) {
         clearInterval(time);
         answered = false;
@@ -201,10 +201,10 @@ function answerPage() {
     }
 
     if (currentQuestion == (triviaQuestions.length-1)) {
-        setTimeout(scoreboard, 5000)
+        setTimeout(scoreboard, 3000)
     } else {
         currentQuestion++;
-        setTimeout(newQuestion, 5000);
+        setTimeout(newQuestion, 3000);
     }
 
 
@@ -212,13 +212,13 @@ function answerPage() {
 
 function scoreboard() {
     $("#timeLeft").empty();
-    $("#mesage").empty();
+    $("#message").empty();
     $("#correctedAnswer").empty();
     $("#gif").empty();
 
     $("#finalMessage").html(messages.finished);
     $("#correctAnswers").html("Correct Answers: " + correctAnswer);
-    $("#incorrectAnswer").html("Incorrect Answers: " + incorrectAnswer);
+    $("#incorrectAnswers").html("Incorrect Answers: " + incorrectAnswer);
     $("#unanswered").html("Unanswered " + unanswered);
     $("#startOverBtn").addClass("reset");
     $("#startOverBtn").show();

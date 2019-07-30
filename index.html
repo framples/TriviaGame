@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Office Trivia!</title>
+    <title>The Office Trivia!</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -12,11 +13,15 @@
 
 <body>
     <header>
-        <h1>The Office Trivia!</h1>
+            <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                      <h1 class="display-4">The Office Trivia</h1>
+                    </div>
+                  </div>
     </header>
 
     <div class = "container">
-        <button class = "btn btn-primary" id="startBtn">Start</button>
+        <button class = "btn btn-info" id="startBtn">Start</button>
 
         <div id=timeLeft></div>
         <div id=currentQuestion></div>
@@ -27,7 +32,7 @@
         <div id=gif></div>
         <div id=finalMessage></div>
         <div id=correctAnswers></div>
-        <div id=incorrectAnswer></div>
+        <div id=incorrectAnswers></div>
         <div id=unanswered></div>
         <div id="startOverBtn"></div>
 
