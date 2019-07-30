@@ -182,12 +182,12 @@ function answerPage() {
 
     var rightAnswerText = triviaQuestions[currentQuestion].possibleAnswers[triviaQuestions[currentQuestion].answer];
     var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
-    $("#gif").html('<img src = "../images/" + gifAssignment[currentQuestion] +'.gif" width = "400px">'); 
+    $('#gif').html('<img src = "assets/images/'+ gifArray[currentQuestion] +'.gif" width = "400px">');
 
     if ((userSelect == rightAnswerIndex) && (answered == true)) {
         correctAnswer++;
         $("#message").html(messages.correct);
-    } else if (userSelect != rightAnswerIndex) && (answered == true)) {
+    } else if ((userSelect != rightAnswerIndex) && (answered == true)) {
         incorrectAnswer++;
         $("#message").html(messages.incorrect);
         $("#correctedAnswer").html("The correct answer was: " + rightAnswerText);
@@ -211,18 +211,18 @@ function answerPage() {
 }
 
 function scoreboard() {
-$("#timeLeft").empty();
-$("#mesage").empty();
-$("#correctedAnswer").empty();
-$("#gif").empty();
+    $("#timeLeft").empty();
+    $("#mesage").empty();
+    $("#correctedAnswer").empty();
+    $("#gif").empty();
 
-$("#finalMessage").html(messages.finished);
-$("#correctAnswers").html("Correct Answers: " + correctAnswer);
-$("#incorrectAnswer").html("Incorect Answers: " + incorrectAnswer);
-$("#unanswered").html("Unanswered " + unanswered);
-$("#startOverButton").addClass("reset");
-$("#startOverButton").show();
-$("#startOverButton").html("Test your wits again?");
+    $("#finalMessage").html(messages.finished);
+    $("#correctAnswers").html("Correct Answers: " + correctAnswer);
+    $("#incorrectAnswer").html("Incorect Answers: " + incorrectAnswer);
+    $("#unanswered").html("Unanswered " + unanswered);
+    $("#startOverButton").addClass("reset");
+    $("#startOverButton").show();
+    $("#startOverButton").html("Test your wits again?");
 
 }
 
