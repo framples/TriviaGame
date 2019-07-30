@@ -1,3 +1,5 @@
+
+//oject with questions
 var triviaQuestions = [{
 
     question: "",
@@ -96,7 +98,7 @@ var userAnswer;
 
 var gifAssignment = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12]
 
-
+//functions to make buttons actually do something
 $("#startOverButton").on("click", function () {
     $(this).hide();
     newGame();
@@ -109,7 +111,7 @@ $("#startButton").on("click", function () {
 
 });
 
-
+// function to create a new game
 function newGame() {
 
     $("#correctAnswer").empty();
@@ -121,5 +123,27 @@ function newGame() {
     answered = 0;
     correctAnswer = 0;
     incorrectAnswer = 0;
+    
+    newQuestion();
+
+}
+// function to start new question
+function newQuestion() {
+    $("#message").empty();
+    $("#correctedAnswer").empty();
+    $("#gif").empty();
+    answer=true;
+
+    $("#currentQuestion").html("Question #" +(currentQuestion+1)+"/"+triviaQuestions.length);
+    $(".question").html("<h2>" + triviaQuestions[currentQuestion].question + "</h2>");
+
+        for (var i = 0; i < 4; i++) {
+            var choices = $("div");
+            choices.text(triviaQuestoins[currentQuestion].possibleAnswers[i]);
+            choices.attr({"data-index": i });
+            choices.addClass("thisChoice");
+            $(".answerList").append(choices);
+        }
+
 
 }
