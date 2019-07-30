@@ -214,7 +214,6 @@ function scoreboard() {
     $("#timeLeft").empty();
     $("#message").empty();
     $("#correctedAnswer").empty();
-    $("#gif").empty();
 
     $("#finalMessage").html(messages.finished);
     $("#correctAnswers").html("Correct Answers: " + correctAnswer);
